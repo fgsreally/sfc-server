@@ -2,7 +2,7 @@
 import { $ } from "sfc-server";
 
 let req = $<string, string>("/test").post("/app", (req, res) => {
-  res.end("111");
+  res.end("222");
 });
 </script>
 

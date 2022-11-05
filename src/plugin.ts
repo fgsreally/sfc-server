@@ -1,4 +1,5 @@
 import { PluginOption } from "vite";
+import { transformSync } from "esbuild";
 export const scriptRE = /(<script\b(?:\s[^>]*>|>))(.*?)<\/script>/gims;
 
 export function pureServer(): PluginOption {
@@ -9,16 +10,12 @@ export function pureServer(): PluginOption {
       let serverScript = "";
       if (!id.includes("node_modules") && /\.vue$/.test(id)) {
         code.replace(scriptRE, (str, tag, script) => {
-          console.log("tag", tag, id);
-
           if (tag?.includes("server")) {
             serverScript += script;
           }
           return "";
         });
-        console.log("serverScript", serverScript);
-
-        return serverScript;
+        return transformSync(serverScript, { loader: "ts" }).code;
       }
     },
   };

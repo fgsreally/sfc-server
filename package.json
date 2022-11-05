@@ -1,6 +1,6 @@
 {
   "name": "sfc-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,7 +16,8 @@
   "exports": {
     ".": {
       "require": "./dist/web.cjs",
-      "import": "./dist/web.js"
+      "import": "./dist/web.js",
+      "types": "./dist/web.d.ts"
     },
     "./server": {
       "require": "./dist/server.cjs",
@@ -36,14 +37,15 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "esbuild": "^0.15.13",
     "express": "^4.18.1"
   },
   "devDependencies": {
-    "typescript": "^4.6.4",
-    "tsup": "^6.2.3",
-    "supertest": "^6.2.4",
     "@types/express": "^4.17.14",
-    "vitest": "^0.23.4",
-    "vite": "^3.1.0"
+    "supertest": "^6.2.4",
+    "tsup": "^6.2.3",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0",
+    "vitest": "^0.23.4"
   }
 }

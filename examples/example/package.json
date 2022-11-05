@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "cors": "^2.8.5",
+    "nodemon": "^2.0.20",
     "sfc-server": "workspace:^0.0.0",
     "vue": "^3.2.41"
   },
